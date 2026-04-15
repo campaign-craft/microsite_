@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi - Mata Lokal Award | Tribunnews.com</title>
+    <link rel="shortcut icon" href="img/favicon2.png" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/simplePagination.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="about home-article">
+        <header class="header">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="img/lokal-award.svg" alt="LOGO">
+                        </a>
+                    </div>
+                    <div class="push-left">
+                        <button id="menu-toggler" data-class="menu-active" class="hamburger">
+                                <span class="hamburger-line hamburger-line-top"></span>
+                                <span class="hamburger-line hamburger-line-middle"></span>
+                                <span class="hamburger-line hamburger-line-bottom"></span>
+                              </button>
+                        <ul id="primary-menu" class="menu nav-menu">
+                            <li id="close1" class="menu-item current-menu-item"><a class="nav__link" href="./#beranda">Beranda</a></li>
+                            <li id="close2" class="menu-item current-menu-item"><a class="nav__link" href="./#tentang">Tentang</a></li>
+                            <li id="close3" class="menu-item current-menu-item"><a class="nav__link" href="./#kategorul">Kategori</a></li>
+                            <li id="close4" class="menu-item current-menu-item"><a class="nav__link" href="index.html">MVP</a></li>
+                            <li id="close5" class="menu-item current-menu-item"><a class="nav__link" href="./#pendaftaran">Pendaftaran</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <main class="main">
+        <div class="pendaftaran pb" data-parallax="container">
+            <div class="pendaftaran__obj1" data-scroll-speed="4">
+                <img src="img/ornament/o1.png" alt="">
+            </div>
+            <div class="pendaftaran__obj2" data-scroll-speed="3">
+                <img src="img/ornament/o2.png" alt="">
+            </div>
+            <div class="pendaftaran__obj3" data-scroll-speed="2">
+                <img src="img/ornament/o3.png" alt="">
+            </div>
+            <div class="pendaftaran__obj4" data-scroll-speed="4">
+                <img src="img/ornament/o5.png" alt="">
+            </div>
+            <div class="pendaftaran__obj5" data-scroll-speed="3">
+                <img src="img/ornament/o6.png" alt="">
+            </div>
+            <div class="pendaftaran__obj6" data-scroll-speed="3">
+                <img src="img/ornament/o7.png" alt="">
+            </div>
+            <div class="container">
+                <div class="kategori__logo">
+                    <img src="img/logo-matalokal-big.png" alt="">
+                </div>
+                <div class="pendaftaran__title">
+                    FORM PENDAFTARAN
+                </div>
+                <div class="pendafataran__info">
+                    Silahkan isi form di bawah ini untuk medaftarkan diri Anda
+                </div>
+                <div class="main-form">
+                    <form id="multistep_form">
+                        <!-- progressbar -->
+                        <ul id="progress_header">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Step 01 -->
+                        <div class="multistep-box">
+                            <div class="title-box">
+                                <h1>Data Diri</h1>
+                                <p>Isi Data Diri Anda</p>
+                            </div>
+                            <div class="group">
+                                <label>Nama (Sesuai KTP)</label>
+                                <input name="nama" placeholder="John Carter" id="nama">
+                                <span id="error-nama"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/name.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Nomor Telepon</label>
+                                <input name="telepon" placeholder="+62 888 888 8888" id="telepon">
+                                <span id="error-telepon"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/phone.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Email </label>
+                                <input type="text" name="email" placeholder="John@xyz.com" id="email">
+                                <span id="error-email"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/email.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Kota</label>
+                                <input name="kota" placeholder="Jakarta Pusat" id="kota">
+                                <span id="error-kota"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/city.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Provinsi</label>
+                                <input name="provinsi" placeholder="DKI Jakarta" id="provinsi">
+                                <span id="error-provinsi"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/city.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Alamat</label>
+                                <input name="alamat" placeholder="Alamat Lengkap Anda" id="alamat">
+                                <span id="error-alamat"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/location.png" alt="">
+                                </div>
+                            </div>
+                            <div class="nxt-prev-button right-btn">
+                                <input type="button" name="next" class="fs_next_btn action-button" value="Next">
+                            </div>
+                        </div>
+                        <!-- Step 02 -->
+                        <div class="multistep-box">
+                            <div class="title-box">
+                                <h1>Detail Perusahaan Anda</h1>
+                                <p>Isi Detai Perusahan Anda</p>
+                            </div>
+                            <div class="group">
+                                <label>Nama Perusahaan</label>
+                                <input name="nama-p" placeholder="Nama Perusahaan Anda" id="nama-p">
+                                <span id="error-nama-p"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/perusahaan.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Provinsi</label>
+                                <input name="provinsi-p" placeholder="DKI Jakarta" id="provinsi-p">
+                                <span id="error-provinsi-p"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/city.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Kota</label>
+                                <input name="kota-p" placeholder="Jakarta Pusat" id="kota-p">
+                                <span id="error-kota-p"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/city.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Alamat</label>
+                                <input name="alamat-p" placeholder="Alamat Lengkap" id="alamat-p">
+                                <span id="error-alamat-p"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/location.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>LinkedIn Perusahaan</label>
+                                <input name="linkedIn-p" placeholder="Username LinkedIn Perusahaan (cth : Tribun Network)" id="linkedIn-p">
+                                <span id="error-linkedIn-p"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/linkedin.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Instagram Perusahaan</label>
+                                <input name="ig-p" placeholder="Username Instagram Perusahaan (cth : @tribunnews)" id="ig-p">
+                                <span id="error-ig-p"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/ig.png" alt="">
+                                </div>
+                            </div>
+                            <div class="nxt-prev-button">
+                                <input type="button" name="previous" class="previous action-button" value="Back">
+                                <input type="button" name="next" class="ss_next_btn action-button" value="Next">
+                            </div>
+                        </div>
+                        <!-- step 3 -->
+                        <div class="multistep-box">
+                            <div class="title-box">
+                                <h1>Detail Kontak Alternatif</h1>
+                                <p>Detail Kontak Alternatif</p>
+                            </div>
+                            <div class="group">
+                                <label>Nama (Sesuai KTP)</label>
+                                <input name="nama-k" placeholder="John Carter" id="nama-k">
+                                <span id="error-nama-k"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/name.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Nomor Telepon</label>
+                                <input name="telepon-k" placeholder="+62 888 888 8888" id="telepon-k">
+                                <span id="error-telepon-k"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/phone.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Email </label>
+                                <input type="text" name="email-k" placeholder="John@xyz.com" id="email-k">
+                                <span id="error-email-k"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/email.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Kota</label>
+                                <input name="kota-k" placeholder="Jakarta Pusat" id="kota-k">
+                                <span id="error-kota-k"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/city.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Provinsi</label>
+                                <input name="provinsi-k" placeholder="DKI Jakarta" id="provinsi-k">
+                                <span id="error-provinsi-k"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/city.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Alamat</label>
+                                <input name="alamat-k" placeholder="Alamat Lengkap Anda" id="alamat-k">
+                                <span id="error-alamat-k"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/location.png" alt="">
+                                </div>
+                            </div>
+                            <div class="nxt-prev-button">
+                                <input type="button" name="previous" class="previous action-button" value="Back">
+                                <input type="button" name="next" class="ts_next_btn action-button" value="Next">
+                                </dvi>
+                            </div>
+                        </div>
+                        <!-- Step 04 -->
+                        <div class="multistep-box">
+                            <div class="title-box">
+                                <h1>Detail Kampanye / Program / Konten Anda</h1>
+                                <p>Isi Detail Kampanye / Program / Konten Anda</p>
+                            </div>
+                            <div class="group">
+                                <label>Judul</label>
+                                <input name="judul" placeholder="Judul Kampanye / Program / Konten Anda" id="judul">
+                                <span id="error-judul"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/name.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Brand / Klien / Pengiklan</label><br>
+                                <div class="custom02">
+                                    <input type="radio" id="radio01-01" name="demo01"><label for="radio01-01">Brand</label>
+                                    <input type="radio" id="radio01-02" name="demo01"><label for="radio01-02">Klien</label>
+                                    <input type="radio" id="radio01-03" name="demo01"><label for="radio01-03">Pengiklan</label>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Pemilik Brand</label>
+                                <input name="pbrand" placeholder="John Carter" id="pbrand">
+                                <span id="error-pbrand"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/name.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Didaftarkan oleh (Nama Perusahaan)</label>
+                                <input name="oleh" placeholder="Nama Perusahaan Anda" id="oleh">
+                                <span id="error-oleh"></span>
+                                <div class="group-icon">
+                                    <img src="img/icon-form/city.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Kategori Pendaftar</label><br>
+                                <div class="custom02">
+                                    <input type="radio" id="radio02-01" name="demo02"><label for="radio02-01">Brand</label>
+                                    <input type="radio" id="radio02-02" name="demo02"><label for="radio02-02">Klien</label>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Materi Utama</label>
+                                <p>Masukkan link presentasi studi kasus</p>
+                                <input name="materi" placeholder="Lampirkan Link URL Anda" id="materi">
+                                <span id="error-materi"></span>
+                                <div class="group-icon icon2">
+                                    <img src="img/icon-form/link.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Materi Pendukung</label>
+                                <p>Masukkan link video sebagai materi pendukung</p>
+                                <input name="materi-p" placeholder="Lampirkan Link URL Anda" id="materi-p">
+                                <span id="error-materi-p"></span>
+                                <div class="group-icon icon2">
+                                    <img src="img/icon-form/link.png" alt="">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label>Kategori</label><br>
+                                <div class="custom02">
+                                    <input type="radio" id="radio03-01" name="demo03"><label for="radio03-01">Campaign</label>
+                                    <input type="radio" id="radio03-02" name="demo03"><label for="radio03-02">Content</label>
+                                    <input type="radio" id="radio03-03" name="demo03"><label for="radio03-03">Impact</label>
+                                </div>
+                            </div>
+
+                            <div class="nxt-prev-button">
+                                <input type="button" name="previous" class="previous action-button" value="Back">
+                                <input type="button" name="next" class="fo_next_btn action-button" value="Next">
+                            </div>
+                        </div>
+                        <!-- step 05 -->
+                        <div class="multistep-box">
+                            <div class="title-box">
+                                <h1>Preview dan Konfirmasi</h1>
+                                <p> Preview dan Konfirmasi Data Anda</p>
+                            </div>
+                            <div class="data-preview">
+                                <h1>Data Diri</h1>
+                                <label>Nama (Sesuai KTP)</label>
+                                <div class="data-preview__isi">
+                                    John Carter
+                                </div>
+                                <label>Nomor Telepon</label>
+                                <div class="data-preview__isi">
+                                    +62 888 888 8888
+                                </div>
+                                <label>Kota</label>
+                                <div class="data-preview__isi">
+                                    Jakarta Pusat
+                                </div>
+                                <label>Email </label>
+                                <div class="data-preview__isi">
+                                    John@xyz.com
+                                </div>
+                                <label>Provinsi</label>
+                                <div class="data-preview__isi">
+                                    DKI Jakarta
+                                </div>
+                                <label>Alamat</label>
+                                <div class="data-preview__isi">
+                                    Alamat lengkap
+                                </div>
+                            </div>
+                            <div class="data-preview">
+                                <h1>Detail Perusahaan Anda</h1>
+                                <label>Nama Perusahaan</label>
+                                <div class="data-preview__isi">
+                                    John Carter
+                                </div>
+                                <label>Provinsi</label>
+                                <div class="data-preview__isi">
+                                    Provinsi
+                                </div>
+                                <label>Kota</label>
+                                <div class="data-preview__isi">
+                                    Jakarta Pusat
+                                </div>
+                                <label>Alamat </label>
+                                <div class="data-preview__isi">
+                                    Alamat Lengkap
+                                </div>
+                                <label>LinkedIn Perusahaan</label>
+                                <div class="data-preview__isi">
+                                    https://tribunnews.com
+                                </div>
+                                <label>Instagram Perusahaan</label>
+                                <div class="data-preview__isi">
+                                    Instagram Perusahaan
+                                </div>
+                            </div>
+                            <div class="data-preview">
+                                <h1>Detail Kontak Alternatif</h1>
+                                <label>Nama (Sesuai KTP)</label>
+                                <div class="data-preview__isi">
+                                    John Carter
+                                </div>
+                                <label>Nomor Telepon</label>
+                                <div class="data-preview__isi">
+                                    +62 888 888 8888
+                                </div>
+                                <label>Kota</label>
+                                <div class="data-preview__isi">
+                                    Jakarta Pusat
+                                </div>
+                                <label>Email  </label>
+                                <div class="data-preview__isi">
+                                    John@xyz.com
+                                </div>
+                                <label>Provinsi</label>
+                                <div class="data-preview__isi">
+                                    DKI Jakarta
+                                </div>
+                                <label>Alamat</label>
+                                <div class="data-preview__isi">
+                                    Alamat lengkap
+                                </div>
+                            </div>
+                            <div class="data-preview">
+                                <h1>Detail Kampanye/Program/Konten Anda</h1>
+                                <label>Judul</label>
+                                <div class="data-preview__isi">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                </div>
+                                <label>Brand / Klien / Pengiklan</label>
+                                <div class="data-preview__isi">
+                                    Lorem ipsum dolor sit amet,
+                                </div>
+                                <label>Pemilik Brand</label>
+                                <div class="data-preview__isi">
+                                    Lorem ipsum dolor sit amet,
+                                </div>
+                                <label>Didaftarkan oleh (Nama Perusahaan)</label>
+                                <div class="data-preview__isi">
+                                    Tribunnews
+                                </div>
+                                <label>Kategori Pendaftar</label>
+                                <div class="data-preview__isi">
+                                    Brand
+                                </div>
+                                <label>Materi Utama</label>
+                                <div class="data-preview__isi">
+                                    https://xxxx
+                                </div>
+                                <label>Materi Pendukung</label>
+                                <div class="data-preview__isi">
+                                    https://xxxx
+                                </div>
+                                <label>Kategori</label>
+                                <div class="data-preview__isi">
+                                    Kategori A
+                                </div>
+                            </div>
+                            <div class="nxt-prev-button"><input type="button" name="previous" class="previous action-button" value="Back">
+                                <input type="submit" name="submit" class="submit_btn fv_next_btn action-button" value="Submit">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="pendaftaran__succes">
+                        <div class="pendaftaran__succes--content">
+                            <div class="pendaftaran__succes--logo">
+                                <img src="img/succes.png" alt="">
+                            </div>
+                            <h3>Terima kasih!</h3>
+                            <p>Pendaftaran Anda telah berhasil. Data Anda telah kami terima dan kami akan mengirim e-mail konfirmasi ke e-mail yang sudah didaftarkan. Silakan cek kotak masuk e-mail Anda secara berkala.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <ul class="footer-social">
+                <li>
+                    <a href="https://hplokaldeal.id/assets_front/img/instagram.png" target="_blank" rel="noopener noreferrer">
+                        <img src="img/instagram.png" alt="yt">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://hplokaldeal.id/assets_front/img/facebook.png" target="_blank" rel="noopener noreferrer">
+                        <img src="img/facebook.png" alt="fb">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/tribunnews?lang=en" target="_blank" rel="noopener noreferrer">
+                        <img src="img/twitter.png" alt="ig">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@tribunnews" target="_blank" rel="noopener noreferrer">
+                        <img src="img/tik_tok.png" alt="yt">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/tribunnews/?originalSubdomain=id" target="_blank" rel="noopener noreferrer">
+                        <img src="img/linkedin.png" alt="tw">
+                    </a>
+                </li>
+            </ul>
+            <p class="copyright">© Copyright 2022. Tribunnews. All Rights Reserved.</p>
+            <div class="footer-logo">
+                <a href="https://www.tribunnews.com/" target="_blank">
+                    <img class="mr-1" src="https://kmanvipapua.id/assets_front/img/LOGO TRIBUN.svg" alt="">
+                </a>
+                <a href="https://www.kgmedia.id/" target="_blank">
+                    <img src="https://kmanvipapua.id/assets_front/img/logo-kgmedia-white.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--back to top-->
+    <div class="m-backtotop " aria-hidden="true ">
+        <div class="arrow-back">
+            <img src="img/top.png " alt="top.png ">
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.overscroll.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/lottie.min.js"></script>
+    <script type="text/javascript" src="js/jquery.simplePagination.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>100x100</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .banner {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .img-1,
+        .img-2 {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -18;
+            opacity: 1;
+            animation-name: fade;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        
+        .banner__time--clock {
+            position: absolute;
+            top: 52px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            margin: auto;
+            width: 63px;
+            height: 27px;
+            border-radius: 3px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -18;
+            opacity: 0;
+            animation-name: fade;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        
+        .banner__time--clock {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        section .img-1,
+        section .img-2 {
+            opacity: 1;
+            animation-name: iris;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        
+        .img-1 {
+            animation-delay: 0s;
+        }
+        
+        .img-2 {
+            animation-delay: 2s;
+        }
+        
+        @keyframes crossfade {
+            00.00% {
+                opacity: 1;
+            }
+            06.25% {
+                opacity: 1;
+            }
+            25.00% {
+                opacity: 1;
+            }
+            31.25% {
+                opacity: 1;
+            }
+            100.0% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fade {
+            00.00% {
+                opacity: 1;
+                z-index: -10;
+            }
+            06.25% {
+                opacity: 1;
+                z-index: -10;
+            }
+            31.25% {
+                opacity: 1;
+                z-index: -12;
+            }
+            37.50% {
+                opacity: 1;
+                z-index: -14;
+            }
+            100.0% {
+                opacity: 1;
+                z-index: -16;
+            }
+        }
+        
+        @keyframes iris {
+            00.0% {
+                clip-path: circle(0% at 50% 0%);
+                z-index: -10;
+            }
+            12.5% {
+                clip-path: circle(120% at 50% 0%);
+                z-index: -10;
+            }
+            31.25% {
+                clip-path: circle(120% at 50% 0%);
+                z-index: -12;
+            }
+            37.50% {
+                clip-path: circle(0% at 50% 0%);
+                z-index: -14;
+            }
+            100% {
+                clip-path: circle(0% at 50% 0%);
+                z-index: -16;
+            }
+        }
+        
+        @-webkit-keyframes blinker {
+            from {
+                opacity: 1.0;
+            }
+            to {
+                opacity: 0.0;
+            }
+        }
+        
+        .blink {
+            text-decoration: blink;
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-direction: alternate;
+        }
+        
+        .signal1,
+        .signal2,
+        .signal3,
+        .signal4,
+        .signal5,
+        .signal6,
+        .signal7,
+        .signal8,
+        .signal9,
+        .signal10,
+        .signal11,
+        .reset,
+        .first {
+            font-style: normal;
+            font-weight: 900;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: center;
+            color: #fff;
+            display: none;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .jadwal {
+            display: none;
+            font-weight: 900;
+            width: 55px;
+            padding-bottom: 2px;
+            margin: 0px auto;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: center;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 3px;
+        }
+        
+        #timetable {
+            text-align: center;
+        }
+        
+        .textclock1 {
+            margin-top: 35px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="img-1" style="background-image: url('1.png');">
+            <div class="textclock1">
+                <div class="signal1">
+                    IMSAK
+                </div>
+                <div class="signal2">
+                    SUBUH
+                </div>
+                <div class="signal3">
+                    DZUHUR
+                </div>
+                <div class="signal4">
+                    DZUHUR
+                </div>
+                <div class="signal5">
+                    ASHAR
+                </div>
+                <div class="signal6">
+                    ASHAR
+                </div>
+                <div class="signal7">
+                    MAGRIB
+                </div>
+                <div class="signal8">
+                    MAGRIB
+                </div>
+                <div class="signal9">
+                    ISYA
+                </div>
+                <div class="signal10">
+                    ISYA
+                </div>
+            </div>
+            <div id="table-jdw-sholat">
+                <div id="timetable">
+                    <div class="jadwal">
+                        <div class="pray__time" id="imsak"> <span></span></div>
+                    </div>
+                    <div class="jadwal">
+                        <div class="pray__time" id="subuh"><span></span> </div>
+                    </div>
+                    <div class="jadwal">
+                        <div class="pray__time" id="dzuhur"><span></span> </div>
+                    </div>
+                    <div class="jadwal">
+                        <div class="pray__time" id="ashar"><span></span> </div>
+                    </div>
+                    <div class="jadwal">
+                        <div class="pray__time" id="magrib"><span></span> </div>
+                    </div>
+                    <div class="jadwal">
+                        <div class="pray__time" id="isya"><span></span> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img-2" style="background-image: url('2.png');"></div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/DataTP.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+
+</body>
+
+</html>

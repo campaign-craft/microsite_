@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+    </style>
+    <link rel="shortcut icon" href="https://cdn-1.tstatic.net/img/icon/tribun-icon_32.png" />
+    <link rel="stylesheet" href="vendor/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="multiple-scenes ">
+
+    <div id="pano"></div>
+    <div class="logo-tribun">
+        <img src="img/logo.png" alt="logo tribunnews">
+    </div>
+    <div class="menuIcon">
+        <input type="checkbox" id="control">
+        <label id="main-menu" for="control">
+      <img src="img/more.png">
+</label>
+        <div class="icon-container">
+            <a href="javascript:void(0)" id="autorotateToggle">
+                <img class="icon off" src="img/play.png">
+                <img class="icon on" src="img/pause.png">
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="javascript:void(0)" id="fullscreenToggle">
+                <img class="icon off" src="img/fullscreen.png">
+                <img class="icon on" src="img/windowed.png">
+            </a>
+        </div>
+        <div class="icon-container">
+            <div class="box-sound">
+                <div class="pause" onclick="togglePlay()">
+                    <img src="img/sound.png">
+                </div>
+                <div class="player">
+                    <audio class="audio" src="img/music.mp3" autoplay="" type="audio" loop=""></audio>
+                </div>
+            </div>
+        </div>
+        <div class="icon-container">
+            <a href="https://bit.ly/LocalUrbanFest" target="_blank">
+                <div class="box-map">
+                    <img src="img/localurbanfest.png">
+                </div>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="mailto:marcomm@tribunnews.com" target="_blank">
+                <div class="box-map">
+                    <img src="img/email.png">
+                </div>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="https://www.instagram.com/tribunnews/?hl=en" target="_blank">
+                <div class="box-map">
+                    <img src="img/instagram.png">
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="sceneList">
+        <ul class="scenes">
+            <a href="../index.html" class="scene" data-id="0-gate">
+                <div class="gate__icon">
+                    <img src="img/open.png" alt="">
+                </div>
+                <li class="text">GATE</li>
+            </a>
+            <a href="../lobby/index.html" class="scene" data-id="1-lobby" onclick="togglePlay()">
+                <div class="gate__icon">
+                    <img src="img/open.png" alt="">
+                </div>
+                <li class="text">LOBBY</li>
+            </a>
+            <a href="index.html" class="scene" data-id="0-art1">
+                <div class="gate__icon">
+                    <img src="img/open.png" alt="">
+                </div>
+                <li class="text">ART<br> GALLERY </li>
+            </a>
+            <a href="javascript:void(0)" class="scene" data-id="1-art2" style="display: none;">
+                <div class="gate__icon">
+                    <img src="img/open.png" alt="">
+                </div>
+                <li class="text">ART<br> GALLERY 2 </li>
+            </a>
+            <a href="javascript:void(0)" class="scene" data-id="2-art3" style="display: none;">
+                <div class="gate__icon">
+                    <img src="img/open.png" alt="">
+                </div>
+                <li class="text">ART<br> GALLERY 3 </li>
+            </a>
+            <a href="javascript:void(0)" class="scene" data-id="3-art4" style="display: none;">
+                <div class="gate__icon">
+                    <img src="img/open.png" alt="">
+                </div>
+                <li class="text">ART<br> GALLERY 4 </li>
+            </a>
+            <a href="../multimedia/index.html" class="scene" data-id="6-mulmed">
+                <div class="gate__icon">
+                    <img src="img/open.png" alt="">
+                </div>
+                <li class="text">MULTIMEDIA<br> ROOM</li>
+            </a>
+        </ul>
+    </div>
+
+    <div id="titleBar">
+        <h1 class="sceneName"></h1>
+    </div>
+
+    <a href="javascript:void(0)" id="sceneListToggle">
+        <img class="icon off" src="img/expand.png">
+        <img class="icon on" src="img/collapse.png">
+    </a>
+
+    <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+        <img class="icon" src="img/up.png">
+    </a>
+    <a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+        <img class="icon" src="img/down.png">
+    </a>
+    <a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+        <img class="icon" src="img/left.png">
+    </a>
+    <a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+        <img class="icon" src="img/right.png">
+    </a>
+    <a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+        <img class="icon" src="img/plus.png">
+    </a>
+    <a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+        <img class="icon" src="img/minus.png">
+    </a>
+    <div class="modal" id="art1">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/90_PHOTOGRAPHY_Mochammad Adnan Kasogi.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Lorong Botol Bekas</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Mochammad Adnan Kasogi</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Sebanyak 3.455 botol plastik bergantungan membentuk sebuah lorong di sebuah rumah yang berdekatan dengan pinggir Kali Surabaya, Wringinanom, Gresik. Instalasi Museum Plastik yang dibuat oleh LSM Ecoton ini menggambarkan sungai-sungai di Indonesia yang
+                                    tengah dikepung oleh sampah plastik. Selain terlihat estetik, museum ini juga menjadi sarana edukasi kepada masyarakat agar mengurangi pemakaian plastik sekali pakai yang banyak mengotori sungai dan laut Indonesia.
+                                    Temuan Ecoton menunjukkan jumlah mikroplastik lebih banhak dibanding plankton. Program lingkungan PBB (UNEP) memprediksi, pada tahun 2050 jumlah plastik akan lebih banyak daripada ikan. Indonesia sendiri menempati peringkat
+                                    kedua sebagai penyumbang sampah plastik ke lautan dengan total tiap tahun mencapai 3,2 juta ton melalui sungai-sungai. Tentu saja hal ini bisa jadi ancaman bagi lingkungan dan manusia.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/lorong-botol-bekas" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="art2">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/26_PHOTOGRAPHY_M. Jeffry Hanafiah.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">NYEKIR</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">M. Jeffry Hanafiah</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    NYEKIR adalah proses menyusun benang yang ditaruh pada rak sekir untuk dibuat motif tenun. Benang-benang yang sudah berbentuk pola/motif tadi akan digulung pada kletehek. Proses Nyekir ini sangat penting dan harus dilakukan oleh yang berpengalaman, sebab
+                                    dari proses inilah motif atau pola mulai bentuk.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/nyekir" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art3">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/169_PHOTOGRAPHY_Muhammad Nurudin.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">APabrik Tradisional Mie Lethek</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Muhammad Nurudin</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Pabrik Mie Lethek sudah ada sejak tahun 1940-an. Terletak di Dusun Bendo, Trimuri, Srandakan, Bantul. Selain menjadi sentra industri mie lethek, juga menjadi daya tarik wisatawan untuk melihat proses pembuatan mie yang menarik.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/pabrik-tradisional-mie-lethek" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art4">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/38_PHOTOGRAPHY_Nur Efendi.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Pengrajin Okokan di Tengah Pandemi</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Nur Efendi</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Semangat bapak pengrajin okokan untuk tetap berkarya dan menciptakan kreativitas tanpa batas di masa pandemi ini. Di masa pandemi ini tidak seperti masa sebelumnya yang selalu ramai mencari okokan untuk di beli, dengan adanya virus corona ini sangatlah
+                                    sepi dan para bapak bapak ini tetap berkarya walaupun sepi pembeli. Okokan merupakan kalung (keroncong) dari kayu yang biasanya digantungkan dileher sapi sebagai kebanggaan. Okokan yang kecil dibuat super jumbo ukuran
+                                    90 cm malahan ada yang lebih besar. Okokan jika di goyang mengeluarkan suara yang keras dan bergemuruh jika dimainkan secara beramai-ramai.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/pengrajin-okokan-di-tengah-pandemi" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art5">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/59_PHOTOGRAPHY_Aqil Fadhlullah.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">
+                            Momen Pacu Jawi
+                        </div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Aqil Fadhlullah</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Kearifan lokal dari Tanah Data, Sumatera Barat, berupa pacuan sapi yang diadakan di sawah berlumpur. Pembajakan sawah pun terbantu dan juga dengan adanya pengunjung yang datang akan membantu perekonomian.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/momen-pacu-jawi" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art6">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/2_PHOTOGRAPHY_Erwin Kurniawan.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Pariwisata Bodaya Wonosobo</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">erwin kurniawan</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Pagelaran event tahunan Java Baloon Carnivl merupakan agenda wisata khas Wonosobo yang mengangkat kearifan lokal untuk dikenalkan kepada dunia.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/pariwisata-bodaya-wonosobo" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art7">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/7_PHOTOGRAPHY_Sofyan Efendi.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Keseharian Suku Dayak Sungkung</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Sofyan Efendi</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Seorang wanita Suku Dayak Sungkung sedang mencari udang di sungai Seluas. Wanita suku Dayak Sungkung adalah suku Dayak yang masih menghormati Alam leluhur.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/keseharian-suku-dayak-sungkung" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- arboard 2 -->
+    <div class="modal" id="art8">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/17_PHOTOGRAPHY_Zaidan Rizqullah Dirgantara Pratama.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Rice Farmer</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Zaidan Rizqullah Dirgantara Pratama</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Petani adalah salah satu profesi yang sangat berjasa bagi kehidupan. Mereka telah bersusah payah menjaga ketersediaan pangan bagi masyarakat. Menjadi petani tentu tidaklah mudah. Butuh perjuangan dan usaha agar mampu menghasilkan hasil panen yang berkualitas.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/rice-farmer" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art9">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/35_PHOTOGRAPHY_Nur Efendi.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Seni Ukir Patung Tangan di Bali</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Nur Efendi</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Hasil kesenian kerajinan rumahan ini banyak digeluti di pulau Bali terutama wilayah Kabupaten Gianyar, tidak hanya menjadi komoditi orang Bali, bahkan orang asing atau wisatawan yang datang bertujuan untuk liburan, akan cukup tertarik untuk mengetahui
+                                    dari dekat, tata cara pembuatan patung, termasuk berbagai hasil karya para seniman. Seni ukir patung di Bali tidak perlu diragukan lagi, menyuguhkan cipta karya kerajinan tangan sangat indah, dan berkualitas.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/seni-ukir-patung-tangan-di-bali" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art10">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/PHOTOGRAPHY/37_PHOTOGRAPHY_Nur Efendi.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Semangat Pande Besi</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Nur Efendi</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Semangat seorang bapak pande wena pande besi tatasan pengrajin pande besi untuk tetap berkarya dan menciptakan kreativitas tanpa batas di masa pandemi ini. Pandemi merupakan tantangan baru bagi dunia khususnya di industri kerajinan , sehingga semua dituntut
+                                    untuk tetap berinovasi , berkarya dan meningkatkan kreativitas. untuk mendorong perekonomian para pelaku UMKM di tengah pandemi COVID-19.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/semangat-pande-besi" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art11">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/6_FASHION_Rachy Rasel.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Miracle Undesirable/knitting with embroidering on ecoprint</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Rachy Rasel</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Motif dayak pada tenun ikat.12 simbol braile pada kain ecoprint yang disulam rajut dari tangan ajaib oleh 14 disabilitas rungu,daksa,grahita yang tergabung di rumah belajar gratis EL ARA project.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/miracle-undesirableknitting-with-embroidering-on-ecoprint" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art12">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/7_FASHION_Aulia siska.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Butterfly Brooch</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Aulia siska</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Bros yang terbuat dari bahan tembaga enamel dan batu Druzy khas pacitan ini mengandung filosofi perjuangan menjadi lebih baik. Sengaja dibuat owner sebagai penggambaran bagaimana dirinya berjuang untuk tetap produktif dan kreatif meski harus hidup bersama
+                                    lupus. Desain ini dibuat untuk mendanai yayasan graha kupu yang di inisiasi oleh owner sebagi lembaga untuk mendampingi para odapus dan odamun, sehingga mereka mendapatkan pengobatan yang tepat dan cepat. serta berharap
+                                    bisa menginspirasi semua orang agar tetap mempertahankan semangat Never Give Up dalam menjalani berbagai ujian dalam universitas kehidupan
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/butterfly-brooch" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art13">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/9_FASHION_Anna-Agustina.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Denim in harmony</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Anna agustina</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Denim merupakan tekstil yg sejak jaman dahulu sangat di sukai masyarakat.teksturnyq yg kuat dan sangat mudah di padu padankan dengan aneka outfit membuat demim di sukai baik dari kalangan muda hingga tua.dengan konsep zero waste kali ini denim hadir dengan
+                                    sentuhan berbeda.keunikan design dari kain perca sisa kain produksi membuat denim tampil tidak monoton.denim in harmony menghasilkan design yg mebuat denim smakin unik dan cantik.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/denim-in-harmony" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art14">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/13_FASHION_Sri Isnawati.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Ecofashion</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Sri Isnawati</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Pemberian motif menggunakan tehnik ecoprint yaitu seni mencetak bagian dr tumbuhan dalam media tertentu.. dalam hal ini kami memakai media kain katun primis. Pemakaian warna alam dari jolawe dan tingi untuk warna polos dan luriknya. Kami memakai Tehnik
+                                    jahit zero waste sebagai langkah kami untuk turut serta mengurangi limbah tekstil. Semua pengerjaan adalah hasil pemberdayaan lingkungan alam sekitar lereng gunung arjuno dan ibu ibu rumah tangga sekitar rumah. Karena
+                                    tehnik pewarnaan dan pemberian motif kami memakai bahan alami pantaslah kiranya hasil karya kami disematkan sebagai hasil karya ECOFASHION.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/ecofashion" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- artboard 3 -->
+    <div class="modal" id="art15">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/16_FASHION_Jeanny Primasari _Khaya Heritage.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">POLLINATOR SERIES</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Jeanny Primasari / Khaya Heritage</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Pollinator Series by Khaya Heritage menanggapi fenomena berkurangnya populasi hewan penyerbuk, baik di kawasan urban maupun di pedesaan. Batch pertama seri ini menampilkan beberapa desain eklektik dengan motif sarang lebah. Khaya Heritage memiliki spesialisasi
+                                    dalam zero waste cutting pattern, yaitu metode pembuatan baju dimana seluruh kain terpakai habis menjadi bagian-bagian dari baju tanpa sisa kain perca. Dalam seri ini, teknik zero waste tertuang antara lain dalam Pollinator
+                                    Outer (baik versi Him dan Her), Pollinator Kebaya (untuk dewasa maupun anak-anak) dan Pollinator Pants. Penggunaan teknik zero waste memiliki implikasi dimana posisi motif kain harus terintegrasi dengan perletakkan
+                                    pola baju. Oleh karena itu, kami berkolaborasi dengan para rekanan pembatik agar posisi motif sarang lebahnya sesuai dengan kebutuhan setiap desain baju. Motif dibuat dengan teknik batik tulis dan pewarnaan alami indigofera
+                                    oleh salah satu pembatik rekanan kami. Sebagai sebuah produk slow fashion, Pollinator series dibuat sesuai dengan pesanan dan pelanggan bisa memesan model pakaian lain dengan menggunakan motif Pollinator. Khaya menyediakan
+                                    berbagai desain yang mayoritas merupakan desain zero waste. Untuk setiap pembelian seri Pollinator, pelanggan otomatis mengadopsi bibit pohon untuk ditanam di hutan Kalimantan oleh yayasan Alam Sehat Lestari. Pelestarian
+                                    hutan merupakan salah satu usaha untuk menjaga populasi hewan penyerbuk.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/pollinator-series" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art16">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/15_FASHION_Peni Permonowati.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">D'Gunungan</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Peni Permonowati</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Kalung & Bros D'Gunungan, terbuat dari batu alam bergambar yang berasal dari Pacitan kemudian dibentuk gunungan dan dibingkai dengan tembaga bakar. Gunungan pada wayang kulit berbentuk kerucut yang melambangkan kehidupan manusia, semakin tinggi ilmu dan
+                                    semakin tua usia, manusia harus semakin mengerucut dan semakin mendekat pada Sang Pencipta. Manunggaling jiwa, rasa, cipta, karsa dalam kehidupan kita.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/dgunungan" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art17">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/8_FASHION_Diyah.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Anting Perca</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Diyah</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Memanfaatkan limbah perca batik, yang kemudian dengan tehnik sospeso menjadikan perca batik ini jadi bernilai. Dengan memanfaatkan perca, secara tidak langsung, kita turut berkontribusi mengurangi limbah kain. Tehnik sospeso adalah salah satu art atau
+                                    seni yang berasal dari Italy. Yang kemudian dikolaborasikan dengan kearifan budaya lokal yaitu batik. Batik sebagai wastra nusantara, adalah salah satu ciri atau ikon dari bangsa kita Indonesia. Dan anting ini adalah
+                                    salah satu karya sospeso batik-nya Indonesia.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/anting-perca" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art18">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/10_FASHION_Lufi Susmariyanti.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Women in Suits</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Lufi Susmariyanti</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Pemberian motif menggunakan tehnik ecoprint yaitu seni mencetak bagian dr tumbuhan dalam media tertentu.. dalam hal ini kami memakai media kain katun primis. Pemakaian warna alam dari jolawe dan tingi untuk warna polos dan luriknya. Kami memakai Tehnik
+                                    jahit zero waste sebagai langkah kami untuk turut serta mengurangi limbah tekstil. Semua pengerjaan adalah hasil pemberdayaan lingkungan alam sekitar lereng gunung arjuno dan ibu ibu rumah tangga sekitar rumah. Karena
+                                    tehnik pewarnaan dan pemberian motif kami memakai bahan alami pantaslah kiranya hasil karya kami disematkan sebagai hasil karya ECOFASHION.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/women-in-suits" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art19">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/15_ARCHITECTURE_Oklya Budi Setiawan.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">SRAWUNG KAWURUH</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Oklya Budi Setiawan</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Serawung kawuruh merupakan ruang komunal yang dapat di gunakan untuk berbagai kegiatan , Serawung Kawruh adalah istilah jawa serawung sendiri mengandung arti kumpul atau pertemuan. serta kawuruh memiliki arti pengetahuan sehingga ruang komunal ini diharapkan
+                                    tidak hanya di gunakan untuk bekumpul /pertemuan, namun juga digunakan untuk belajar/menimba ilmu(ngangsu kawuruh) dari sinilah terjadi dampak yang luar biasa salah satunya terjalin buhungan relasi antar penguna serta
+                                    mendapatkan informasi /pengetahuan secara individu atau bekelompok sehingga terjalin interaksi sosial yang dapat menjadikan perubahan besar bagi pengguna atau lingkungan.serata dengan adanya bangunan ini terdapat resonansi
+                                    yang dapat menghidupkan lingkungan yang ada di sekitarnya Penggunakan matrial pada bangunan ini menggunakan matrial lokal dan sustainable seperti halnya bambu dan sirap penggunakan matrial lokal di pilih guna untuk
+                                    mengenalkan dan meningkatkan eksistensi matrial lokal serta meningkatkan daya jual pengrajin & daya jual matrial itu sendiri. serta penggunaan matrial bambu yang di gunakan secara menyeluruh di tambah dengan mamasukan
+                                    unsur-unsur budaya dapat memperkuat karakter/identitas bangunan.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/srawung-kawuruh" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art20">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/31_ARCHITECTURE_Denny Rizaldi.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">OMAH TAMA</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Denny Rizaldi</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Sebagai pusat terminal pelabuhan, Kali baru mempunyai sejarah panjang yang dulunya dijadikan sebagai Pelabuhan Ikan, menjadikan kali baru sebagai pusat ekonomi saat itu, sehingga terjadinya pertumbuhan penduduk yang semakin meningkat tiap tahunnya. Hal
+                                    tersebut membuat Kali Baru menjadi Padat dan tidak tertata. disebabkan oleh urbanisasi yang tidak diimbangi dengan penataan kota yang layak Dalam hal ini pemerintah berusaha dalam menata kembali pemumkiman kumuh yang
+                                    ada di Jakarta Utara khususnya daerah Kali Baru. Sesuai dengan RPJMD DKI Jakarta, wilayah Kali baru direncanakan untuk di bangun rusun bagi nelayan Kali baru dan masyarakat di Jakarta Utara. Pembangunan rusun ini tidak
+                                    hanya dijadikan sebagai wadah untuk hunian saja akan tetapi harus dapat memenuhi kebutuhan aktifitas masyarakat dengan berfokus terhadap desain yang sustainable. Fokus dari desain tersebut juga sejalan dengan gagasan
+                                    pemerintah dalam menciptakan Program Pengembangan Kota Hijau (P2KH). Omah tama hadir sebagai suatu wadah arsitektur yang mengedepankan penataan pemumkiman yang berkelanjutan, dengan menghubungkan aspek lingkungan, manusia
+                                    dan bangunannya. Konsep healthy space sebagai langkah menciptakan harmoni melalui desain bangunan yang hemat energy, dalam rangka meningkatkan kualitas hidup masyarakat melalui desain bangunan yang sehat.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/omah-tama" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art21">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/33_ARCHITECTURE_Partogi Pandiangan.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Adaptive Reuse Plaza Koja</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Partogi Pandiangan</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    The Way of Passive Design Reactivate Old Building. Aktivasi kembali bangunan lama yang tidak beroperasi menjadi sebuat arstektur yang fungsional dan lebih responsive terhadap pandemic dan lingkungan dan self sustain melalui penerapan prisnip-prinsip passive
+                                    design
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/adaptive-reuse-plaza-koja" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art22">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/4_FASHION_Wahyunan Hidayat.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Flower Garland</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Wahyunan Hidayat</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Desain ini saya mempergunakan serabut buah pinang yg sudah saya keringkan Dan dibentuk menjadi bunga untuk aksesori fashion juga sebagai motif dalam busana.serabut pinang banyak sekali terbuang dan menjadi limbah sampah yg lama bisa hancur.. Dengan mengambil
+                                    ide dari serabut pinang semoga serabut bisa digunakan untuk keperluan fashion juga menggurangi sampah serabut pinang.Terima kasih
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/flower-garland" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art23">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/FASHION/5_FASHION_Jemi Nikolaus R - SAPARO.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">SIKLUS | #controlyourwaste</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Jemi Nikolaus R - SAPARO</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    SIKLUS | #controlyourwaste (self reminder and responsibility, to be mindful ) ni adalah long series yang sedang kami explorsi di studio saparo, sesimpel melatih kesadaran kami serta merespon apa yang sedang terjadi dan mempertanyakan banyak hal,dengan
+                                    limbah sebagai media expresi kami. salah satu pertanyaan yang belakang ini menghantui kepala kami, yaitu apakah sekarang masih relefankah istilah, atau ajakan yang seringkali kita di ingatkan oleh orang tua atau guru
+                                    semasa kecil dulu, yaitu istilah'' buanglah sampah pada tempatnya'' lalu apakah tanggung jawab kita hanya cukup sampai disana, tempat sampah? ...apakah instilah ini masih sesuai seiring realita yang terjadi sekarang,
+                                    banyakan permasalahan baru yang lahir dari proses ini.... Sooo bukankah kita pribadi harus bijak dan bertangung jawab dengan apa yang kita hasilkan (limbah/sampah) #controlyourwaste dan berdayakan kembali teman #ayoberkaryadarilimbah.
+                                    SIKLUS sendiri ini adalah manifestasi dari semua explorasi limbah yang saya lakukan dari awal hingga sekarang , bagaimana saya merespon #vibrasi yang saya terima dan mewujudkanya, dengan merespon (limbah) apa yang ada
+                                    di dekat saya dan mengcontrol, berexperiment serta melahirkan dan memadukan kedalam berbagai macam teknik explorasi untuk melanjudkan silkus dari limbah ini .
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/siklus-controlyourwaste" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- artboard 4 -->
+    <div class="modal" id="art24">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/40_ARCHITECTURE_Usman Nofianto.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">EMPERAN WILIS - Warung Sego Djenang, Kediri</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Usman Nofianto</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Warung Sego Djenang lahir sebagai dampak krisis pandemi Covid 19 Dimiliki dan diusahakan secara kolektif oleh karyawan-karyawati sebuah perusahaan, berdiri diatas tanah dan bangunan bekas ATM Bank di samping tempat wisata Menyajikan menu makanan tradisional
+                                    nasi pecel tumpang khas lokal Kediri dan jenang grendul sebagai menu utama sarapan pagi Dengan semangat bertahan dan cita-cita berkembang sebagai warung yang mengkini ditengah situasi ekonomi yang tidak menentu Memikirkan
+                                    kembali fungsi ruang dan tujuan arsitektur dibangun untuk memiliki nilai-nilai kebermanfaatan. Bermanfaat bagi kelangsungan hidup manusia dan lingkungan secara berkelanjutan ditengah krisis multidimensi Strategi desain
+                                    merubah ATM Bank menjadi Warung mendirikan ‘emperan’ sebagai sebuah pernaungan. Konsep emperan rumah Jawa yang bersifat terbuka menghadirkan kesan welcome kepada pengunjung Lokasi warung berada di lereng gunung Wilis
+                                    yang memiliki goa-goa baik secara alami ataupun buatan manusia yang menjadi pernaungan masyarakat lokal Kediri di masa lalu Konsep bentuk goa diejawantahkan pada entrance emperan dengan pola-pola lengkung yang sekaligus
+                                    sebagai pengikat tiang konstruksi bambu secara tektonik Memanfaatkan material yang ada, mengubah material bekas dan meterial lokal untuk memiliki nilai baru dengan tujuan menciptakan warung kekinian secara hybrid antara
+                                    lokal tradisional dan global industrial
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/emperan-wilis-warung-sego-djenang-kediri" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art25">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/32_ARCHITECTURE_Tio Hakim.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">STACKS</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Tio Hakim</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    The closure of the railroad bars under Janti flyover Yogyakarta, Indonesia have been in effect since 2017. In the existing regulations, the railroadcrossing cannot be level with the road. The impact of closing the railroad bars affected existing trading
+                                    businesses along the road, the losses were up to 50%. until 2021, under the Janti flyover there are still trading activities but it has begun to be forgotten. In order not to become an abandoned place, we propose to
+                                    make it a public place that has a function as a place to eat for traders costumer and also as a gathering space using wood materials and also some plants so that the environment is more integrated with the community
+                                    and attract people to come to the place. So that natural elements can be present and complement each other in the urban area. "STACK" revive the once crowded places..
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/stacks" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art26">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/34_ARCHITECTURE_Muhammad Arif Abdurrahman.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Huniflex</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Muhammad Arif Abdurrahman</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Mewujudkan kehidupan yang berkelanjutan dalam hunian yang kecil melalui rumah modular dengan on-demand living concept, desain berbasis budaya, dan pengembangan Big-data.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/huniflex" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art27">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/3_ARCHITECTURE_Bagus Arisanjaya Irawan.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">kampung adaptasi</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Bagus Arisanjaya Irawan</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    kampung yang di setiap rentang waktunya bertumbuh dan mengisi setiap kekosongan ruang memberikan dampak signifikan pada aspek lingkungan, aspek sosial, dan ekonomi. kini adaptasi kampung tersebut mulai menjawab aspek lingkungan di mana ia berdiri, aspek
+                                    sosial di mana ia berbagi, dan aspek ekonomi di mana ia bertransaksi. penyusunan pola massa dan zoning pada setiap unit mengadopsi dari bagaimana “arsitektur metabolisme” menjawab kebutuhan penggunanya seiring pertumbuhan
+                                    biologis yang organik. sehingga ruang-ruang yang tercipta secara organik dapat tumbuh dan berkembang seiring kebutuhan dari penggunanya.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/kampung-adaptasi" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art28">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/12_ARCHITECTURE_Dannies Ardi.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Breathable home</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">dannies ardi</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Menciptakan rumah tinggal dengan konsep hijau tidak saja membuat sehat dunia di dalam rumah tersebut, tetapi juga membuat sehat bagi lingkungan di sekitarnya. Kontribusi area hijau, menahan air hujan ke saluran, menambah oksigen mikro.
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/breathable-home" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art29">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/17_ARCHITECTURE_I Putu Gede Budianca.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Lingkar Tirta Sempaja</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">I Putu Gede Budianca</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Beranjak dari degradasi kualitas alam karena ketidaksadaran masyarakat membuang limbah rumah tangga non-kakus secara langsung ke selokan berdampak pada penurunan kualitas air dan ekosistem disekitar. Lingkar Tirta Sempaja hadir sebagai salah satu upaya
+                                    untuk meminimalisir kerusakan alam karena aktivitas masyarakat. Lingkar Tirta Sempaja dimaknai sebagai siklus atau perputaran (mutu) air yang digunakan masyarakat Sempaja Selatan, bagaimana kualitas air yang diambil
+                                    dari alam untuk kebutuhan sehari-hari kemudian dikembalikan ke alam dengan kondisi yang lebih baik. Sebuah sistem pengolahan limbah secara komunal yang dipadukan dengan beberapa fasilitas penunjang. Aspek lingkungan
+                                    tercermin dalam pemanfaatan limbah yang diolah melalui instalasi pengolahan mulai dari pemisahan senyawa dan partikel hingga memanfaatkan kembali hasil dan sisa olahan untuk hal yang lebih bernilai. Disisi lain, sistem
+                                    pengolahan dapat menjadi wadah meningkatkan kondisi sosial ekonomi masyarakat sekitar. Membangun kebersamaan antar masyarakat melalui proses pembangunan dan pengelolaan. Dari kelompok masyarakat inilah tercipta generasi
+                                    di masa depan yang mengerti artinya hidup berdampingan dengan alam. Kelompok masyarakat yang mengedukasi dan memberi pesan kepada anak cucu kita bagaimana cara merubah hal yang biasa dilupakan menjadi suatu hal yang
+                                    memiliki nilai. Nilai-nilai yang bisa mengangkat perekonomian masyarakat yang terimplementasikan dalam desain Secercah harapan dari selatan sempaja untuk bumi yang lebih baik. “LINGKAR TIRTA SEMPAJA”
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/lingkar-tirta-sempaja" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="art30">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/ARCHITECTURE/19_ARCHITECTURE_Stanisia Buwono.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Narasi Migrasi</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Stanisia Buwono</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <div id="textdesc">
+                                <p>
+                                    Atas nama Pamurbaya,surga burung migran tersembunyi yang kini penuh perburuan liar 6 spesies dilindungi,inilah Narasi Migrasi dimana burung tidak lagi diancam senapan tetapi disuguhi habitat masa depan
+                                </p>
+                            </div>
+                            <a href="https://hp-localurbanfest.tribunnews.com/artwork/narasi-migrasi" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="example">
+        <div class="box">
+            <div class="content__modal__box">
+                <div class="modal__wrap">
+                    <div class="modal__left">
+                        <img src="img/photo.jpg">
+                    </div>
+                    <div class="modal__right">
+                        <div class="modal__close" id="modal__close" close-modal="">
+                            <img src="img/close.png">
+                        </div>
+                        <label>Judul Artwork</label>
+                        <div class="modal__right--title">Space ini buat kamu!</div>
+                        <label>Artist</label>
+                        <div class="modal__right--name">Mau nama kamu ada di sini?</div>
+                        <label>Deskripsi</label>
+                        <div class="modal__right--deskripsi">
+                            <p>Jadi bagian dari Movement Generasi Muda bareng HP di Local Urban Fest.</p>
+                            <p>Submit karya visual fotografi, fashion design, atau arsitektur yang memiliki nilai lokal dan berdampak lingkungan, sosial, atau bisnis.</p>
+                            <p>Tunjukkan <strong>#AkuLokalAkuBangga</strong> lewat karyamu dan menangkan hadiah jutaan rupiah!</p>
+                            <a href="https://bit.ly/LocalUrbanFest" target="_blank">
+                                <button>Vote</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="vendor/screenfull.min.js"></script>
+    <script src="vendor/bowser.min.js"></script>
+    <script src="vendor/marzipano.js"></script>
+
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/lottie.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

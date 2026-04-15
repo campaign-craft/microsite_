@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    color: #2B388F;
+    height: 100px;
+    overflow: hidden;
+}
+
+.textclock {
+    font-size: 30px;
+    color: #000;
+}
+
+.signal1,
+.signal2,
+.signal3,
+.signal4,
+.signal5,
+.signal6,
+.signal7,
+.signal8,
+.signal9,
+.signal10,
+.signal11,
+.reset,
+.first {
+    font-weight: 700;
+    font-size: 8px;
+    line-height: 10px;
+    display: none;
+    text-align: center;
+    color: #FD5A1C;
+    margin-top: 10px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block;
+}
+
+.banner {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
+    position: relative;
+    background: #FAFAFA;
+}
+
+.banner__logo {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 3;
+    text-align: center;
+}
+
+.banner__logo img {
+    width: 50px;
+}
+
+.banner__bgtop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.banner__bgbottom {
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    z-index: 0;
+}
+
+.banner__bgbottom img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.banner__time {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.banner__time--clock {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    font-style: normal;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px !important;
+    line-height: 35px !important;
+    color: #0A5239 !important;
+    font-family: 'Yeseva One', cursive;
+}
+
+.banner__time--wib {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+    margin-top: -6px;
+}
+
+.banner__selamat {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    position: relative;
+    text-align: center;
+    color: #000000;
+    padding-top: 22px;
+}
+
+.banner__ibadah {
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 44px;
+    position: relative;
+    text-align: center;
+    color: #DCA35B;
+}
+
+.banner__sponsore {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #2D2D2D;
+    padding-top: 10px;
+}
+
+.banner__img {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.banner__jadwal {
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0px 56px;
+    position: absolute;
+    bottom: 37px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+#timetable {
+    display: flex;
+    justify-content: space-between;
+}
+
+.jadwal {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    color: #505050;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.jadwal__line {
+    width: 100%;
+    height: 1px;
+    background: #F1F1F1;
+    border-radius: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.canvas__tgl1 {
+    color: #000000;
+    padding-top: 23px;
+    padding-bottom: 2px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+form#form1 {
+    margin: 0px 0px;
+    background: #F1F1F1;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+select {
+    background: transparent;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    vertical-align: middle;
+    height: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.styleSelect {
+    overflow: hidden;
+    padding-bottom: 10px;
+    display: none;
+}
+
+option {
+    border: 0;
+    color: #111;
+}
+
+@-webkit-keyframes blinker {
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+
+.blink {
+    text-decoration: blink;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+}
+
+a.click {
+    background: transparent;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100px;
+    z-index: 5;
+}
+
+.banner__header {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 15px; */
+    padding: 15px 15px 0px 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.pray {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 2px;
+}
+
+.pray__time {
+    background: #ED3123;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    width: 80px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFF1F1;
+}
+
+.canvas__note {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 7px;
+    line-height: 9px;
+    text-align: center;
+    color: #808285;
+    padding-top: 5px;
+}
+
+.note2 {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 7px;
+    line-height: 9px;
+    text-align: center;
+    color: #808285;
+    padding-top: 4px;
+}
+
+.header__logobrand img {
+    width: 91px;
+}
+
+.textclock1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 49px;
+}
+
+.canvas__tgl {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #000000;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.carousel {
+    background: #FFFFFF;
+    border: 1px solid #ED3123;
+    box-sizing: border-box;
+    border-radius: 13px;
+    position: absolute;
+    top: 81px;
+    width: 170px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
