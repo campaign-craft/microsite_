@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsite Portfolio Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight text-slate-900">Portfolio Microsite</h1>
+                <p class="text-sm text-slate-500 mt-1">Kumpulan proyek microsite dan aset digital</p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="relative w-full md:w-72">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </span>
+                <input type="text" id="searchInput" placeholder="Cari microsite..." 
+                    class="block w-full pl-10 pr-3 py-2 border border-slate-200 rounded-lg leading-5 bg-slate-50 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out sm:text-sm">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div id="projectGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Project cards will be injected here -->
+        </div>
+        
+        <!-- Empty State -->
+        <div id="noResults" class="hidden text-center py-20">
+            <svg class="mx-auto h-12 w-12 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <h3 class="mt-2 text-sm font-medium text-slate-900">Tidak ditemukan</h3>
+            <p class="mt-1 text-sm text-slate-500">Coba kata kunci pencarian yang lain.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-auto">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-slate-400 text-xs">
+                &copy; 2024 Portfolio Archive. Dikelola melalui struktur folder Git.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Daftar folder berdasarkan gambar yang Anda unggah
+        const projects = [
+            "akulolakalubangga", "aman", "atrbpn", "ayobangundesa", "bakti1", 
+            "bakti2", "bakti3", "bakti4", "bankjakarta", "bkkbn", 
+            "bsilokalbercerita", "freeport", "herbapoten", "lelang", 
+            "localchanger", "localurbanfest", "lokalaward", "lokalkreasi", 
+            "lokalme", "lokalprojex", "longform-polri", "paf", 
+            "pccc2023", "polri-", "polri--", "polri-2023", "qdenga", 
+            "ramadhan", "TCEA-2022", "virtual-hp", "virtual-qdenga", "YVC-2022"
+        ];
+
+        const projectGrid = document.getElementById('projectGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        // Fungsi untuk merender kartu
+        function renderProjects(filter = '') {
+            const filtered = projects.filter(name => 
+                name.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            projectGrid.innerHTML = '';
+            
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                filtered.forEach(project => {
+                    const card = document.createElement('a');
+                    card.href = project + '/';
+                    card.className = 'project-card block bg-white border border-slate-200 rounded-xl overflow-hidden';
+                    
+                    // Format nama tampilan: hilangkan tanda hubung, jadikan Uppercase
+                    const displayName = project.replace(/-/g, ' ').toUpperCase();
+                    
+                    card.innerHTML = `
+                        <div class="p-5">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="p-2 bg-blue-50 rounded-lg">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                                    </svg>
+                                </div>
+                                <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Microsite</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 truncate mb-1" title="${project}">${displayName}</h3>
+                            <p class="text-xs text-slate-500 truncate mb-4">/${project}</p>
+                            <div class="flex items-center text-blue-600 text-sm font-semibold">
+                                <span>Buka Proyek</span>
+                                <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
+                    `;
+                    projectGrid.appendChild(card);
+                });
+            }
+        }
+
+        // Event listener untuk pencarian
+        searchInput.addEventListener('input', (e) => {
+            renderProjects(e.target.value);
+        });
+
+        // Render awal
+        renderProjects();
+    </script>
+</body>
+</html>
